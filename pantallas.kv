@@ -1,0 +1,424 @@
+<DrawerClickableItem@MDNavigationDrawerItem>
+    focus_color: "#e7e4c0"
+    text_color: "#4a4939"
+    icon_color: "#4a4939"
+    ripple_color: "#c5bdd2"
+    selected_color: "#0c6c4d"
+
+
+<Card>:
+    orientation: 'vertical'
+    size_hint_y: None
+    height: '200dp'
+    elevation: 10
+    padding: '10dp'
+ 
+
+    MDLabel:
+        text: root.text
+        halign: 'center'
+        font_style: 'H6'
+
+#clases creadas para usar en otras parte como los menus
+
+
+#estilo del inicio
+
+<Inicio>:
+	MDScreen:
+		name: 'ini'
+
+		MDLabel:
+			text: 'B I E N V E N I D O'
+			font_size: "36dp"
+			halign: 'center'
+			pos_hint: {'center_y': .8}
+
+		MDLabel:
+			text: 'Bienvenido a la APP de compras de Afymer'
+			font_size: "26dp"
+			halign: 'center'
+			pos_hint: {'center_y': .7}
+
+
+		MDBoxLayout:
+			size_hint: .85, None
+			height: '30dp'
+			pos_hint: {'center_x': .7, 'center_y': .3}
+			spacing: '5dp'
+			orientation: 'vertical'
+
+			MDFlatButton:
+				text: 'Registrate'
+				font_size: '22dp'
+				on_release:
+					app.root.current = 'registro'
+
+			MDFlatButton:
+				text: 'Iniciar sesion'
+				font_size: '22dp'
+				on_release:
+					app.root.current = 'login'
+
+
+#estilo del login
+<Login>:
+	MDScreen:
+		name: 'login'
+
+		MDLabel:
+			text: 'Iniciar sesion'
+			font_size: "48dp"
+			halign: 'center'
+			pos_hint: {'center_y': .8}
+
+		
+		MDTextField:
+			hint_text: 'Nombre de usuario'
+			helper_text: 'Ingrese su nombre de usuario'
+			icon_right: 'account'
+			size_hint_x: .85
+			pos_hint: {'center_x': .5, 'center_y': .65}
+
+						
+		MDTextField:
+			hint_text: 'Contraseña'
+			helper_text: 'ingrese su Contraseña'
+			icon_right: 'eye-off'
+			size_hint_x: .85
+			pos_hint: {'center_x': .5, 'center_y': .5}
+
+		MDBoxLayout: #checkbox
+			size_hint: .85, None
+			height: '30dp'
+			pos_hint: {'center_x': .5, 'center_y': .4}
+			spacing: '5dp'
+			MDCheckbox:
+				size_hint: None, None
+				width: '30dp'
+				height: '30dp'
+				pos_hint: {'center_x': .5, 'center_y': .5}
+			MDLabel:
+				text: "[ref=Mostrar Contraseña]Mostrar Contraseña[/ref]"
+				markup: True
+				pos_hint: {'center_x': .5, 'center_y': .5}
+
+		MDBoxLayout:
+			size_hint: .85, None
+			height: '30dp'
+			pos_hint: {'center_x': .5, 'center_y': .3}
+			spacing: '5dp'
+
+			MDFlatButton:
+				text: 'Registrate'
+				font_size: '22dp'
+				on_release:
+					app.root.current = 'registro'
+
+			MDFlatButton:
+				text: 'Iniciar sesion'
+				font_size: '22dp'
+				on_release:
+					app.root.current = 'nexo'
+
+
+#estilo del registro de usuarios
+<Registro>:
+	MDScreen:
+		name: 'registro'
+
+		MDLabel:
+			text: 'Registrate'
+			font_size: "48dp"
+			halign: 'center'
+			pos_hint: {'center_y': .8}	
+
+		MDTextField:
+			hint_text: 'Nombre de usuario'
+			helper_text: 'Ingrese un nombre de usuario'
+			icon_right: 'account'
+			size_hint_x: .85
+			pos_hint: {'center_x': .5, 'center_y': .65}
+
+						
+		MDTextField:
+			hint_text: 'Contraseña'
+			helper_text: 'Ingrese una Contraseña'
+			icon_right: 'eye-off'
+			size_hint_x: .85
+			pos_hint: {'center_x': .5, 'center_y': .55}
+
+		MDTextField:
+			hint_text: 'Confirmar Contraseña'
+			helper_text: 'Repita la Contraseña'
+			icon_right: 'eye-off'
+			size_hint_x: .85
+			pos_hint: {'center_x': .5, 'center_y': .45}		
+
+		MDTextField:
+			hint_text: 'Correo electronico'
+			helper_text: 'Ingrese un Correo electronico'
+			icon_right: 'email'
+			size_hint_x: .85
+			pos_hint: {'center_x': .5, 'center_y': .35}
+
+		MDBoxLayout:
+			size_hint: .85, None
+			height: '30dp'
+			pos_hint: {'center_x': .5, 'center_y': .25}
+			spacing: '5dp'
+
+			MDFlatButton:
+				text: 'Registrarse'
+				font_size: '22dp'
+				on_release:
+					app.root.current = 'login'
+
+			MDFlatButton:
+				text: 'Iniciar sesion'
+				font_size: '22dp'
+				on_release:
+					app.root.current = 'login'
+
+
+#Nexo (temporal)
+<Nexo>:
+	MDScreen:
+		name: 'nexo'
+		
+
+		MDIconButton:
+    		icon: 'logout'
+    		icon_size: '40dp'
+    		theme_text_color: "Custom"
+    		pos_hint: {"top": 1, 'left': 1}
+    		on_release:
+				app.root.current = 'login'
+
+		MDLabel:
+			text: "Dime pa donde vas pa"
+			font_size: "32dp"
+			halign: 'center'
+			pos_hint: {'center_y': .8}
+
+		MDLabel:
+			text: "(No editen esta pantalla que cuando este la base de datos se va xD)"
+			font_size: "15dp"
+			halign: 'center'
+			pos_hint: {'center_y': .7}
+
+		MDBoxLayout:
+			size_hint: .85, None
+			height: '30dp'
+			pos_hint: {'center_x': .5, 'center_y': .3}
+			spacing: '5dp'
+
+			MDFlatButton:
+				text: 'Administrador'
+				md_bg_color: (0, .5, .5, 1)
+				size_hint: .75, 5
+				font_size: '22dp'
+				on_release:
+					app.root.current = 'admin'
+
+			MDFlatButton:
+				text: 'Cliente'
+				md_bg_color: (0, .5, .5, 1)
+				size_hint: .75, 5
+				font_size: '22dp'
+				on_release:
+					app.root.current = 'tienda'
+
+
+#Ventana del admin
+<Admin>:
+	MDScreen:
+		name: 'admin'
+
+		#barra de mavegacion
+		MDNavigationLayout:
+
+            MDTopAppBar:
+                title: "Navigation Drawer"
+                elevation: 4
+                pos_hint: {"top": 1}
+                md_bg_color: "#e7e4c0"
+                specific_text_color: "#4a4939"
+                left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+
+        	MDNavigationDrawer:
+            	id: nav_drawer
+            	radius: (0, 16, 16, 0)
+
+            	MDNavigationDrawerMenu:
+
+                	MDNavigationDrawerHeader:
+                    	title: "Afymers"
+                    	title_color: "#4a4939"
+                    	text: "Administrador"
+                    	spacing: "4dp"
+                    	padding: "12dp", 0, 0, "56dp"
+
+         
+		            MDNavigationDrawerLabel:
+                    	text: "Administrar"
+
+                	DrawerClickableItem:
+                    	icon: "account"
+                    	text_right_color: "#4a4939"
+                    	text: "Usuarios"
+
+                	DrawerClickableItem:
+                    	icon: "list-box-outline"
+                    	text_right_color: "#4a4939"
+                    	text: "Productos"
+
+                    MDNavigationDrawerDivider:
+
+
+		            MDNavigationDrawerLabel:
+                    	text: "Salir"
+
+                    DrawerClickableItem:
+                    	icon: "logout"
+                    	text: "Cerrar sesion"
+                    	on_release:
+                    		app.root.current = 'login'
+
+	
+		MDBoxLayout:
+			orientation: 'vertical'
+			size_hint: .85, None
+			height: '30dp'
+			pos_hint: {'center_x': .6, 'center_y': .5}
+			spacing: '5dp'
+
+			MDFlatButton:
+				text: 'Productos'
+				height: '30dp'
+				md_bg_color: (0, .5, .5, 1)
+				size_hint: .75, .8
+				font_size: '22dp'
+				on_release:
+					app.root.current = 'productoAdmin'
+
+			MDFlatButton:
+				text: 'Clientes'
+				height: '30dp'
+				md_bg_color: (0, .5, .5, 1)
+				size_hint: .75, 5
+				font_size: '22dp'
+				on_release:
+					app.root.current = 'clientes'
+
+#productos
+
+<ProductosAdmin>:
+	MDScreen:
+		name: 'produtoAdmin'
+
+		MDIconButton:
+    		icon: 'arrow-left'
+    		icon_size: '40dp'
+    		theme_text_color: "Custom"
+    		pos_hint: {"top": 1, 'left': 1}
+    		on_release:
+				app.root.current = 'admin'
+
+		MDLabel:
+			text: 'lista de productos'
+			font_size: "22dp"
+			halign: 'center'
+			pos_hint: {'center_y': .84}
+
+    	BoxLayout:
+        	orientation: 'vertical'
+        	pos_hint: {"center_y": .3}
+        	ScrollView:
+            	MDList:
+                	id: list1
+
+#clientes
+
+<Clientes>:
+	MDScreen:
+		name: 'clientes'
+
+		MDIconButton:
+    		icon: 'arrow-left'
+    		icon_size: '40dp'
+    		theme_text_color: "Custom"
+    		pos_hint: {"top": 1, 'left': 1}
+    		on_release:
+				app.root.current = 'admin'
+
+		MDLabel:
+			text: 'lista de productos'
+			font_size: "22dp"
+			halign: 'center'
+			pos_hint: {'center_y': .84}
+
+    	BoxLayout:
+        	orientation: 'vertical'
+        	pos_hint: {"center_y": .3}
+        	ScrollView:
+            	MDList:
+                	id: list2
+
+
+<Tienda>:
+	MDScreen:	
+		name: 'tienda'
+
+		MDIconButton:
+    		icon: 'arrow-left'
+    		icon_size: '40dp'
+    		theme_text_color: "Custom"
+    		pos_hint: {"top": 1, 'left': 1}
+    		on_release:
+				app.root.current = 'admin'
+
+		ScrollView:
+
+	    	MDGridLayout:
+	    		cols: 3
+		        padding: '10dp'
+		        spacing: '10dp'
+
+		        canvas.before:
+		            Color:
+		                rgba: app.theme_cls.bg_dark
+		            Rectangle:
+		                pos: self.pos
+		                size: self.size
+
+
+		        Card:
+		            text: "Card 1"
+
+		        Card:
+		            text: "Card 2"
+
+		        Card:
+		            text: "Card 3"
+
+		        Card:
+		            text: "Card 4"
+
+		        Card:
+		            text: "Card 5"
+
+		        Card:
+		            text: "Card 6"
+
+		        Card:
+		            text: "Card 7"
+
+		        Card:
+		            text: "Card 8"
+
+		        Card:
+		            text: "Card 9"
+
+		        Card:
+		            text: "Card 10"
